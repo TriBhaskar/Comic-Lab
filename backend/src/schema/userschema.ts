@@ -22,6 +22,9 @@ const UserSchema = new Schema({
     type: String,
     required: true,
   },
+  lastLogin: {
+    type: Date,
+  },
   mobile: {
     type: Number,
     required: true,
@@ -29,6 +32,12 @@ const UserSchema = new Schema({
   dob: {
     type: Date,
     required: true,
+  },
+  role: {
+    type: String,
+    required: true,
+    enum: ["admin", "regular_user"],
+    default: "regular_user",
   },
 });
 
