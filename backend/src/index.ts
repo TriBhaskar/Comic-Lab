@@ -2,7 +2,6 @@ import express, { NextFunction, Request, Response } from "express";
 import bodyParser from "body-parser";
 import router from "./routes";
 import connectDB from "./database/dbConnection";
-import mongoose, { Schema } from "mongoose";
 
 const app = express();
 app.use(bodyParser.json());
