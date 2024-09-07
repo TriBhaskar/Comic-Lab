@@ -22,7 +22,7 @@ const UserSchema = new Schema({
     type: String,
     required: true,
   },
-  lastLogin: {
+  lastsignin: {
     type: Date,
   },
   mobile: {
@@ -51,7 +51,7 @@ export interface IUser {
   userName: string;
   email: string;
   password: string;
-  lastLogin?: Date;
+  lastsignin?: Date;
   mobile: number;
   dob: Date;
   role: string;

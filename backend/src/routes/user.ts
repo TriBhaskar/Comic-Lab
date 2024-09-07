@@ -6,16 +6,16 @@ router.get("/", (req, res) => {
   res.send("Hello World from user");
 });
 
-router.post("/register", (req, res) => {
-  res.send("Register");
+router.post("/signup", (req, res) => {
+  res.send("signup");
 });
 
-router.post("/login", (req, res) => {
-  res.send("Login");
+router.post("/signin", (req, res) => {
+  res.send("signin");
 });
 
-router.post("/logout", (req, res) => {
-  res.send("Logout");
+router.post("/signout", (req, res) => {
+  res.send("signout");
 });
 
 export default router;

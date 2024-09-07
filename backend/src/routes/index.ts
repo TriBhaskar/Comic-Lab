@@ -4,7 +4,7 @@ import adminRouter from "./admin";
 
 const router = Router();
 
-router.use("/user", userRouter);
-router.use("/admin", adminRouter);
+router.use("/comiclab/api/v1/user", userRouter);
+router.use("/comiclab/api/v1/admin", adminRouter);
 
 export default router;
