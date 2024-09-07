@@ -3,14 +3,9 @@ import bcrypt from "bcryptjs";
 import { Request, Response } from "express";
 import { User } from "../database/model";
 import jwt from "jsonwebtoken";
-import dotenv from "dotenv";
-
-// Load environment variables from .env file
-dotenv.config();
+import { JWT_SECRET } from "../config/datakey";
 
 const router = Router();
-
-const JWT_SECRET = process.env.JWT_SECRET;
 
 router.get("/", (req, res) => {
   res.send("Hello World from admin");
@@ -70,6 +65,7 @@ router.post("/signin", async (req: Request, res: Response) => {
   const { email, password } = req.body;
 
   try {
+    console.log("JWT secret ", JWT_SECRET);
     // Check if user exists
     const user = await User.findOne({ email });
     if (!user) {
@@ -87,7 +83,9 @@ router.post("/signin", async (req: Request, res: Response) => {
       expiresIn: "1h",
     });
 
-    res.status(200).json({ token });
+    res
+      .status(200)
+      .json({ token, message: "User logged in successfully", result: true });
   } catch (err) {
     res.status(500).json({ message: "Server error", error: err });
   }
