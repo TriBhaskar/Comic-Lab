@@ -6,6 +6,12 @@ const FavoriteSchema = new Schema({
   created_at: { type: Date, default: Date.now },
 });
 
-const Favorite = mongoose.model("Favorite", FavoriteSchema);
+export default FavoriteSchema;
 
-export default Favorite;
+// make interface for Favorite
+
+export interface IFavorite {
+  user: string;
+  manga: string;
+  created_at: Date;
+}

@@ -9,6 +9,14 @@ const ChapterSchema = new Schema({
   created_at: { type: Date, default: Date.now },
 });
 
-const Chapter = mongoose.model("Chapter", ChapterSchema);
+export default ChapterSchema;
 
-export default Chapter;
+// make interface for Chapter
+export interface IChapter {
+  manga: string;
+  chapter_number: number;
+  title?: string;
+  release_date?: Date;
+  content_url: string;
+  created_at: Date;
+}

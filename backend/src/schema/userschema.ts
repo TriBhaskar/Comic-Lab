@@ -41,6 +41,18 @@ const UserSchema = new Schema({
   },
 });
 
-const User = mongoose.model("User", UserSchema);
+export default UserSchema;
 
-export default User;
+// make interface for User
+
+export interface IUser {
+  firstName: string;
+  lastName: string;
+  userName: string;
+  email: string;
+  password: string;
+  lastLogin?: Date;
+  mobile: number;
+  dob: Date;
+  role: string;
+}

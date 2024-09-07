@@ -8,6 +8,13 @@ const CommentSchema = new Schema({
   updated_at: { type: Date, default: Date.now },
 });
 
-const Comment = mongoose.model("Comment", CommentSchema);
+export default CommentSchema;
 
-export default Comment;
+// make interface for Comment
+export interface IComment {
+  chapter: string;
+  user: string;
+  content: string;
+  created_at: Date;
+  updated_at: Date;
+}

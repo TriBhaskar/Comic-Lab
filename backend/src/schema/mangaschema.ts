@@ -11,6 +11,16 @@ const MangaSchema = new Schema({
   updated_at: { type: Date, default: Date.now },
 });
 
-const Manga = mongoose.model("Manga", MangaSchema);
+export default MangaSchema;
 
-export default Manga;
+// make interface for Manga
+export interface IManga {
+  title: string;
+  author?: string;
+  genre?: string;
+  description?: string;
+  cover_image_url?: string;
+  source_api_id: string;
+  created_at: Date;
+  updated_at: Date;
+}

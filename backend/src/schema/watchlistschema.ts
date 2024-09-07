@@ -6,6 +6,12 @@ const WatchlistSchema = new Schema({
   created_at: { type: Date, default: Date.now },
 });
 
-const Watchlist = mongoose.model("Watchlist", WatchlistSchema);
+export default WatchlistSchema;
 
-export default Watchlist;
+// make interface for Watchlist
+
+export interface IWatchlist {
+  user: string;
+  manga: string;
+  created_at: Date;
+}
