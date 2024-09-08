@@ -85,9 +85,13 @@ router.post(
         return res.status(400).json({ message: "Invalid email or password" });
       }
 
-      const token = jwt.sign({ userId: user._id }, JWT_SECRET, {
-        expiresIn: JWT_LIFETIME,
-      });
+      const token = jwt.sign(
+        { userId: user._id, role: user.role },
+        JWT_SECRET,
+        {
+          expiresIn: JWT_LIFETIME,
+        }
+      );
 
       // Update last login
       user.lastsignin = new Date();
